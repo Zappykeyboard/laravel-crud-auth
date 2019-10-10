@@ -7,6 +7,18 @@ use App\Cat;
 
 class CatAuthController extends Controller
 {
+
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -66,7 +78,9 @@ class CatAuthController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = Cat::findOrFail($id);
+
+        return view('editcat', compact('cat'));
     }
 
     /**
@@ -78,7 +92,15 @@ class CatAuthController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $validated = $request->validate([
+        'name'=> 'required',
+        'race'=> 'required',
+        'cat_rfid'=> 'required'
+      ]);
+
+      Cat::findOrFail($id)->update($validated);
+
+      return redirect('/');
     }
 
     /**

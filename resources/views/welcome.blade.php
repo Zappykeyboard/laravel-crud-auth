@@ -15,9 +15,9 @@
 
           @guest
             <a href="{{ route('login') }}">Login</a>
-          @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-          @endif
+            @if (Route::has('register'))
+              <a href="{{ route('register') }}">Register</a>
+            @endif
           @else
             <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
