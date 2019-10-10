@@ -15,4 +15,8 @@ Route::get('/', 'CatController@index')->name('cat.index');
 
 Auth::routes();
 
+Route::get('/cat/{id}', 'CatAuthController@show')
+          ->middleware('auth')
+          ->name('cat.auth.show');
+
 Route::get('/home', 'HomeController@index')->name('home');

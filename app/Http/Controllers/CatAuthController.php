@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cat;
 
 class CatAuthController extends Controller
 {
@@ -45,7 +46,9 @@ class CatAuthController extends Controller
      */
     public function show($id)
     {
-        //
+        $cat = Cat::findOrFail($id);
+
+        return view('viewcat', compact('cat'));
     }
 
     /**
