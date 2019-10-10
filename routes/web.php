@@ -31,4 +31,7 @@ Route::get('/edit/{id}', 'CatAuthController@edit')
 Route::post('/{id}', 'CatAuthController@update')
         ->name('cat.auth.update');
 
+Route::get('/{id}', 'CatAuthController@destroy')
+        ->name('cat.auth.destroy');
+
 Route::get('/home', 'HomeController@index')->name('home');

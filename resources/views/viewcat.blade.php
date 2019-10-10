@@ -6,6 +6,7 @@
     <p>Race: {{$cat->race}}</p>
     <p>RFID: {{$cat->cat_rfid}}</p>
     <a href="{{route('cat.auth.edit', $cat->id)}}">Edit cat...</a>
+    <p> <a href="{{route('cat.auth.destroy', $cat->id)}}">!!DELETE CAT!! </a> </p>
   </div>
 
 @endsection
