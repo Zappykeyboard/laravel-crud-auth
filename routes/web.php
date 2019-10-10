@@ -19,4 +19,15 @@ Route::get('/cat/{id}', 'CatAuthController@show')
           ->middleware('auth')
           ->name('cat.auth.show');
 
+Route::get('/new', 'CatAuthController@create')
+          ->middleware('auth')
+          ->name('cat.auth.create');
+
+Route::post('/', 'CatAuthController@store')
+        ->middleware('auth')
+        ->name('cat.auth.store');
+
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
